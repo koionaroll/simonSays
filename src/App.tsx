@@ -1,5 +1,6 @@
 import "./App.css";
 import styled from "styled-components";
+import { useEffect, useState } from "react";
 
 function App() {
   const Layout = styled.div`
@@ -38,7 +39,6 @@ function App() {
     height: max;
     margin: 1rem;
 
-
     &:nth-child(2) {
       background: #214c7a;
       &:hover {
@@ -67,10 +67,20 @@ function App() {
         background: #33b531;
       }
     }
+
+
+
   `;
 
-  const score = 2
-  const highscore = 2
+const [score, setScore] = useState(0)
+const [highscore, setHighscore] = useState(0)
+
+const clicked=() =>{
+  setScore(score+1)
+} 
+  
+
+
 
   return (
     <>
@@ -78,7 +88,7 @@ function App() {
         <Title>Simon Says</Title>
         <Pad>
           <div></div>
-          <Button>1</Button>
+          <Button onClick={clicked}>1</Button>
           <div></div>
           <Button>2</Button>
           <Scoreboard>
