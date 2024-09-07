@@ -67,37 +67,64 @@ function App() {
         background: #33b531;
       }
     }
-
-
-
   `;
+  const Start = styled.h1`
+    cursor: pointer;
+  `;
+  const [score, setScore] = useState(0);
+  const [highscore, setHighscore] = useState(0);
+  const [hideStart, setHideStart] = useState(true);
+  const [randSeq, setRandSeq] = useState<number[]>([]);
 
-const [score, setScore] = useState(0)
-const [highscore, setHighscore] = useState(0)
+  useEffect(() => {
+    const generateSeed = Array.from(
+      { length: 100 },
+      () => Math.floor(Math.random() * 4) + 1
+    );
+    setRandSeq(generateSeed);
+  }, []);
 
-const clicked=() =>{
-  setScore(score+1)
-} 
+  const startGame = () => {
+    setHideStart(!hideStart);
+    console.log(randSeq);
+  };
+
+  const clickedOne = (i) => {
+    console.log(i);
+  };
+
+  const clickedTwo = (i) => {
+    console.log(i);
+  };
+
+  const clickedThree = (i) => {
+    console.log(i);
+  };
   
-
-
+  const clickedFour = (i) => {
+    console.log(i);
+  };
 
   return (
     <>
       <Layout>
         <Title>Simon Says</Title>
         <Pad>
+          <div>
+            <p>Highscore: {highscore}</p>
+          </div>
+          <Button onClick={() => clickedOne(1)}>1</Button>
           <div></div>
-          <Button onClick={clicked}>1</Button>
-          <div></div>
-          <Button>2</Button>
+          <Button onClick={() => clickedTwo(2)}>2</Button>
           <Scoreboard>
             <p>Score: {score}</p>
-            <p>Highscore: {highscore}</p>
+            {hideStart && (
+              <Start onClick={startGame}>{hideStart ? "Start" : ""}</Start>
+            )}
           </Scoreboard>
-          <Button>3</Button>
+          <Button onClick={() => clickedThree(3)}>3</Button>
           <div></div>
-          <Button>4</Button>
+          <Button onClick={() => clickedFour(4)}>4</Button>
         </Pad>
         <Footer>By: Khoi</Footer>
       </Layout>
