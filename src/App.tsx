@@ -74,6 +74,8 @@ function App() {
   const [score, setScore] = useState(0);
   const [highscore, setHighscore] = useState(0);
   const [hideStart, setHideStart] = useState(true);
+  const [simonTurn, setSimonTurn] = useState(false);
+  const [round, setRound] = useState(0);
   const [randSeq, setRandSeq] = useState<number[]>([]);
 
   useEffect(() => {
@@ -87,21 +89,38 @@ function App() {
   const startGame = () => {
     setHideStart(!hideStart);
     console.log(randSeq);
+    setSimonTurn(!simonTurn);
+    setRound(round + 1);
   };
 
-  const clickedOne = (i) => {
+  useEffect(() => {
+    if (simonTurn) {
+      runSimonTurn(simonTurn, round);
+    }
+  }, [simonTurn, round]);
+
+  const runSimonTurn = (simonSTurn: boolean, r: number) => {
+    if (simonSTurn == true) {
+      for(let i=0; i<r; i++){
+
+        console.log(randSeq[r]);
+      }
+    }
+  };
+
+  const clickedOne = (i: number) => {
     console.log(i);
   };
 
-  const clickedTwo = (i) => {
+  const clickedTwo = (i: number) => {
     console.log(i);
   };
 
-  const clickedThree = (i) => {
+  const clickedThree = (i: number) => {
     console.log(i);
   };
-  
-  const clickedFour = (i) => {
+
+  const clickedFour = (i: number) => {
     console.log(i);
   };
 
