@@ -78,7 +78,7 @@ function App() {
   `;
 
   const [score, setScore] = useState(0);
-  const [highscore, setHighscore] = useState(0);
+  // const [highscore, setHighscore] = useState(0);
   const [hideStart, setHideStart] = useState(true);
   const [simonTurn, setSimonTurn] = useState(false);
   const [playerTurn, setPlayerTurn] = useState(false);
@@ -145,41 +145,30 @@ function App() {
       }
     }
     setPlayerTurn(!playerTurn)
-    console.log(simonSeq)
     return simonSeq
   };
 
-
-
   const runPlayerTurn = (playerTurn:boolean, r :number, s:number[])=>{
+    const playerSeq = []
     if (playerTurn == true) {
-    //   for(let i=0; i<r; i++){
-        
+    //   for(let i=0; i<r; i++){      
     // }
   }
 }
-
-
 
   const clickedOne = (i: number) => {
     return i
   };
 
   const clickedTwo = (i: number) => {
-    setIsLitTwo((prevState) => !prevState);
-    setTimeout(()=>(setIsLitTwo((prevState) => !prevState)),1000);
     return i
   };
 
   const clickedThree = (i: number) => {
-    setIsLitThree((prevState) => !prevState);
-    setTimeout(()=>(setIsLitThree((prevState) => !prevState)),1000);
     return i
   };
 
   const clickedFour = (i: number) => {
-    setIsLitFour((prevState) => !prevState);
-    setTimeout(()=>(setIsLitFour((prevState) => !prevState)),1000);
     return i
   };
 
@@ -189,7 +178,7 @@ function App() {
         <Title>Simon Says</Title>
         <Pad>
           <div>
-            <p>Highscore: {highscore}</p>
+            {/* <p>Highscore: {highscore}</p> */}
           </div>
           <Button isLit={isLitOne} onClick={() => clickedOne(1)}>1</Button>
           <div></div>
