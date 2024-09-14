@@ -91,23 +91,20 @@ function App() {
   const [isLitThree, setIsLitThree] = useState(false);
   const [isLitFour, setIsLitFour] = useState(false);
 
-  // On component mount, generate a random sequence of numbers (1-4) up to 100 long
-  useEffect(() => {
+  /* Starts a new game: resets relevant states, 
+  generates a random sequence of numbers (1-4) up to 100 long sequence 
+  and sets the first round */
+  const startGame = () => {
     const generateSeed = Array.from(
       { length: 100 },
       () => Math.floor(Math.random() * 4) + 1
     );
     setRandSeq(generateSeed);
-  }, []);
-
-  // Starts a new game: resets relevant states and sets the first round
-  const startGame = () => {
     setHideStart(false);
     setScore(0);
     setRound(1);
     setSimonTurn(true);
-    setPlayerSeq([]);
-    console.log(randSeq)
+    console.log(generateSeed)
   };
 
   // If it's Simon's turn, run the sequence
