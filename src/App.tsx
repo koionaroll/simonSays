@@ -219,8 +219,9 @@ function App() {
   Flaws of the game:
   - Can't spam buttons as a player.
   - Unclear when simon's turn ends and player's turn begins.
-  - Button's feel sticky (too much delay) can't fix due to hoisting and timings.
+  - Button's feel "sticky" (too much delay) can't fix due to hoisting and timings.
     SetTimeouts everywhere doesn't help either. 
-  - Add highscore board one day.
+  - Add highscore board later
+  - Add time penalty later
 */
 export default App;
